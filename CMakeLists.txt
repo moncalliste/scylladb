@@ -2,6 +2,17 @@ cmake_minimum_required(VERSION 3.27)
 
 project(scylla)
 
+FetchContent_Declare(
+	tracy
+	GIT_REPOSITORY	https://github.com/wolfpld/tracy.git
+	GIT_TAG		master
+	GIT_SHALLOW	TRUE
+	GIT_PROGRESS	TRUE
+)
+FetchContent_MakeAvailable(tracy)
+
+target_link_libraries(<TARGET> PUBLIC TracyClient)
+
 list(APPEND CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_SOURCE_DIR}/cmake
   ${CMAKE_CURRENT_SOURCE_DIR}/seastar/cmake)

@@ -38,3 +38,6 @@ target_link_libraries(sstables
 
 check_headers(check-headers sstables
   GLOB_RECURSE ${CMAKE_CURRENT_SOURCE_DIR}/*.hh)
+
+
+target_link_libraries(<TARGET> PUBLIC TracyClient)
